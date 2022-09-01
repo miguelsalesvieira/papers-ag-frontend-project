@@ -1,0 +1,40 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100vw;
+  top: 0px;
+
+  .main {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--global-color-primary-light);
+    padding: var(--global-padding) 0px;
+    margin: var(--global-margin) 0px;
+    border-radius: var(--global-border-radius);
+    max-width: var(--global-max-content-width);
+    width: 100%;
+    border: 1px solid var(--global-color-primary-light);
+
+    .nav-item {
+      font-weight: var(--global-font-weight-l);
+      font-size: var(--global-font-size-m);
+      color: var(--global-color-primary-dark);
+      padding: calc(var(--global-padding) / 2) calc(var(--global-padding) * 2);
+      border-radius: var(--global-border-radius);
+      cursor: pointer;
+      width: 200px;
+      text-decoration: none;
+      text-align: center;
+      transition: all ease 0.2s;
+
+
+      &:hover {
+        background-color: var(--global-color-primary-dark);
+        color: white;
+      }
+    }
+  }
+}
