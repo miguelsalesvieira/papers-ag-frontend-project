@@ -1,18 +1,22 @@
 <div class="main">
   <div class="header"></div>
   <table class="table">
-    <tr class="table-row">
-      <ng-container *ngFor="let column of columns">
-        <th class="table-header">{{ column }}</th>
-      </ng-container>
-    </tr>
-    <ng-container class="item" *ngFor="let item of items; let i = index">
-      <tr class="table-row" (click)="clickItem.emit(i)">
+    <thead>
+      <tr class="table-row">
         <ng-container *ngFor="let column of columns">
-          <td class="table-item">{{ item[column] }}</td>
+          <th class="table-header">{{ column }}</th>
         </ng-container>
       </tr>
-    </ng-container>
+    </thead>
+    <tbody>
+      <ng-container class="item" *ngFor="let item of items; let i = index">
+        <tr class="table-row" (click)="clickItem.emit(i)">
+          <ng-container *ngFor="let column of columns">
+            <td class="table-item">{{ item[column] }}</td>
+          </ng-container>
+        </tr>
+      </ng-container>
+    </tbody>
   </table>
   <div class="footer">
     <div class="dropdown">

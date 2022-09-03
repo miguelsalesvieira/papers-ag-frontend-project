@@ -1,15 +1,17 @@
-<h1>Blocks</h1>
-<app-table
-  [items]="blocks"
-  [columns]="['level', 'proposer', 'timestamp', 'transactionsCount']"
-  [currentPage]="currentPage"
-  [totalPages]="maxNumberPages"
-  [itemsPerPage]="numberOfBlocksPerPage"
-  (onClickNext)="onClickNext()"
-  (onClickPrevious)="onClickPrevious()"
-  (onClickNextN)="onClickNextN()"
-  (onClickPreviousN)="onClickPreviousN()"
-  (onClickPageN)="onClickPageN($event)"
-  (onClickItem)="onClickItem($event)"
-  (onClickNumberPerPage)="onClickNumberPerPage($event)"
-></app-table>
+<div class="main">
+  <h1>Blocks</h1>
+  <app-table
+    [items]="blocks"
+    [columns]="['level', 'proposer', 'timestamp', 'transactionsCount']"
+    [currentPage]="currentPage"
+    [totalPages]="maxNumberPages"
+    [itemsPerPage]="numberOfBlocksPerPage"
+    (onClickNext)="onClickNext()"
+    (onClickPrevious)="onClickPrevious()"
+    (onClickNextN)="onClickNextN()"
+    (onClickPreviousN)="onClickPreviousN()"
+    (onClickPageN)="onClickPageN($event)"
+    (onClickItem)="onClickItem($event)"
+    (onClickNumberPerPage)="onClickNumberPerPage($event)"
+  ></app-table>
+</div>

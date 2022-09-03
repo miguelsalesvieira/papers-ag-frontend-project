@@ -1,8 +1,19 @@
-h1 {
-    font-weight: var(--global-font-weight-m);
-    font-size: var(--global-font-size-xl);
-    color: var(--global-color-grey-dark);
-    margin: 0px 0px var(--global-margin) 0px;
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 
+  .main {
+    max-width: var(--global-max-content-width);
+    margin-top: calc(var(--global-margin) * 4);
+
+    h1 {
+      font-weight: var(--global-font-weight-m);
+      font-size: var(--global-font-size-l);
+      color: var(--global-color-grey-dark);
+      margin: 0px 0px var(--global-margin) 0px;
+    }
   }
-  
+}

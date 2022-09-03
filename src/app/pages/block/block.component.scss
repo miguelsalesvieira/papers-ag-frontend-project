@@ -1,33 +1,46 @@
-p {
-  cursor: pointer;
-  font-weight: var(--global-font-weight-m);
-  font-size: var(--global-font-size-m);
-  color: var(--global-color-grey-dark);
-  margin: 0px 0px calc(var(--global-padding) / 2) 0px;
-  width: fit-content;
-  padding: calc(var(--global-padding) / 2) 0px;
-  border-radius: var(--global-border-radius);
-  transition: all ease 0.2s;
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 
-  span {
-    margin-right: var(--global-margin);
-  }
+  .main {
+    max-width: var(--global-max-content-width);
+    margin-top: calc(var(--global-margin) * 4);
 
-  &:hover {
-    color: white;
-    background-color: var(--global-color-primary-dark-main);
-    padding: calc(var(--global-padding) / 2) var(--global-padding);
-  }
-}
+    p {
+      cursor: pointer;
+      font-weight: var(--global-font-weight-m);
+      font-size: var(--global-font-size-m);
+      color: var(--global-color-grey-dark);
+      margin: 0px 0px calc(var(--global-padding) / 2) 0px;
+      width: fit-content;
+      padding: calc(var(--global-padding) / 2) 0px;
+      border-radius: var(--global-border-radius);
+      transition: all ease 0.2s;
 
-h1 {
-  font-weight: var(--global-font-weight-m);
-  font-size: var(--global-font-size-xl);
-  color: var(--global-color-grey-dark);
-  margin: 0px 0px var(--global-margin) 0px;
+      span {
+        margin-right: var(--global-margin);
+      }
 
-  span {
-    font-weight: var(--global-font-weight-xl);
-    color: var(--global-color-primary-dark);
+      &:hover {
+        color: white;
+        background-color: var(--global-color-primary-dark-main);
+        padding: calc(var(--global-padding) / 2) var(--global-padding);
+      }
+    }
+
+    h1 {
+      font-weight: var(--global-font-weight-m);
+      font-size: var(--global-font-size-l);
+      color: var(--global-color-grey-dark);
+      margin: 0px 0px var(--global-margin) 0px;
+
+      span {
+        font-weight: var(--global-font-weight-xl);
+        color: var(--global-color-primary-dark);
+      }
+    }
   }
 }

@@ -1,0 +1,41 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../../assets/images/landing-page-background.jpg");
+  background-size: cover;
+
+  .container {
+    margin-left: 10%;
+    margin-bottom: -20%;
+    max-width: 400px;
+
+    h1 {
+      font-weight: var(--global-font-weight-xl);
+      font-size: var(--global-font-size-xl);
+      color: var(--global-color-grey-dark);
+      margin: 0px 0px calc(var(--global-margin) * 2) 0px;
+    }
+
+    button {
+      font-weight: var(--global-font-weight-xl);
+      font-size: var(--global-font-size-l);
+      color: var(--global-color-grey-dark);
+      padding: var(--global-margin);
+      width: 200px;
+      cursor: pointer;
+      border-radius: var(--global-border-radius);
+      border: none;
+      background-color: var(--global-color-primary-dark);
+      color: white;
+      transition: all ease 0.2s;
+
+      &:hover {
+        width: 240px;
+      }
+    }
+  }
+}

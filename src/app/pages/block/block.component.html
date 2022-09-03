@@ -1,18 +1,20 @@
-<p (click)="onClickBack()"><span>&#8592;</span>Go back to blocks</p>
-<h1>
-  Transactions for block <span>{{ currentBlockLevel }}</span>
-</h1>
-<app-table
-  [items]="transactions"
-  [columns]="['sender', 'target', 'amount', 'status']"
-  [currentPage]="currentPage"
-  [totalPages]="maxNumberPages"
-  [itemsPerPage]="numberOfTransactionsPerPage"
-  (onClickNext)="onClickNext()"
-  (onClickPrevious)="onClickPrevious()"
-  (onClickNextN)="onClickNextN()"
-  (onClickPreviousN)="onClickPreviousN()"
-  (onClickPageN)="onClickPageN($event)"
-  (onClickItem)="onClickItem($event)"
-  (onClickNumberPerPage)="onClickNumberPerPage($event)"
-></app-table>
+<div class="main">
+  <p (click)="onClickBack()"><span>&#8592;</span>Go back to blocks</p>
+  <h1>
+    Transactions for block <span>{{ currentBlockLevel }}</span>
+  </h1>
+  <app-table
+    [items]="transactions"
+    [columns]="['sender', 'target', 'amount', 'status']"
+    [currentPage]="currentPage"
+    [totalPages]="maxNumberPages"
+    [itemsPerPage]="numberOfTransactionsPerPage"
+    (onClickNext)="onClickNext()"
+    (onClickPrevious)="onClickPrevious()"
+    (onClickNextN)="onClickNextN()"
+    (onClickPreviousN)="onClickPreviousN()"
+    (onClickPageN)="onClickPageN($event)"
+    (onClickItem)="onClickItem($event)"
+    (onClickNumberPerPage)="onClickNumberPerPage($event)"
+  ></app-table>
+</div>
