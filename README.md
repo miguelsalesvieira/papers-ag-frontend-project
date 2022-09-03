@@ -29,7 +29,7 @@ Run `npm run start` or `yarn start` for a dev server. Navigate to `http://localh
 ## Build and run the project
 
 Run `npm run build` or `yarn build` to build the project. The build artifacts will be stored in the `dist/` directory.  
-To run the built project run `http-server dist/papers-ag-frontend-project` and navigate to `http://127.0.0.1:8080`
+To run the built project run `http-server dist` and navigate to `http://127.0.0.1:8080`
 
 ## Running unit tests
 

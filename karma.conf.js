@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/papers-ag-frontend-project'),
+      dir: require('path').join(__dirname, './coverage/simple-tezos-explorer'),
       subdir: '.',
       reporters: [
         { type: 'html' },

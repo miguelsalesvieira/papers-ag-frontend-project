@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "papers-ag-frontend-project": {
+    "simple-tezos-explorer": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/papers-ag-frontend-project",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "papers-ag-frontend-project:build:production"
+              "browserTarget": ":build:production"
             },
             "development": {
-              "browserTarget": "papers-ag-frontend-project:build:development"
+              "browserTarget": "simple-tezos-explorer:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "papers-ag-frontend-project:build"
+            "browserTarget": "simple-tezos-explorer:build"
           }
         },
         "test": {

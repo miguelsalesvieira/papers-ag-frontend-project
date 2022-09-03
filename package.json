@@ -1,5 +1,5 @@
 {
-  "name": "papers-ag-frontend-project",
+  "name": "simple-tezos-explorer",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
