@@ -1,8 +1,6 @@
 <div class="main">
   <h1>Blocks</h1>
-  <app-table
-    [items]="blocks"
-    [columns]="['level', 'proposer', 'timestamp', 'transactionsCount']"
+  <app-pagination
     [currentPage]="currentPage"
     [totalPages]="maxNumberPages"
     [itemsPerPage]="numberOfBlocksPerPage"
@@ -11,7 +9,12 @@
     (onClickNextN)="onClickNextN()"
     (onClickPreviousN)="onClickPreviousN()"
     (onClickPageN)="onClickPageN($event)"
-    (onClickItem)="onClickItem($event)"
     (onClickNumberPerPage)="onClickNumberPerPage($event)"
+  ></app-pagination>
+  <app-table
+    [items]="blocks"
+    [columns]="['level', 'proposer', 'timestamp', 'transactionsCount']"
+    (onClickItem)="onClickItem($event)"
   ></app-table>
+  
 </div>

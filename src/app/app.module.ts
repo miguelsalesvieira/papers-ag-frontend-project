@@ -12,11 +12,13 @@ import { BlocksPageComponent } from './pages/blocks/blocks.component';
 import { BlockPageComponent } from './pages/block/block.component';
 import { NotFoundPageComponent } from './pages/not-found/not-found.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableComponent,
+    PaginationComponent,
     BlocksPageComponent,
     BlockPageComponent,
     NotFoundPageComponent,

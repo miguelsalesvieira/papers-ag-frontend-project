@@ -3,9 +3,7 @@
   <h1>
     Transactions for block <span>{{ currentBlockLevel }}</span>
   </h1>
-  <app-table
-    [items]="transactions"
-    [columns]="['sender', 'target', 'amount', 'status']"
+  <app-pagination
     [currentPage]="currentPage"
     [totalPages]="maxNumberPages"
     [itemsPerPage]="numberOfTransactionsPerPage"
@@ -14,7 +12,11 @@
     (onClickNextN)="onClickNextN()"
     (onClickPreviousN)="onClickPreviousN()"
     (onClickPageN)="onClickPageN($event)"
-    (onClickItem)="onClickItem($event)"
     (onClickNumberPerPage)="onClickNumberPerPage($event)"
+  ></app-pagination>
+  <app-table
+    [items]="transactions"
+    [columns]="['sender', 'target', 'amount', 'status']"
+    (onClickItem)="onClickItem($event)"
   ></app-table>
 </div>

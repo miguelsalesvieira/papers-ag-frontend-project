@@ -20,37 +20,8 @@ export class TableComponent {
   @Input('items')
   items: any[] = [];
 
-  @Input('currentPage')
-  page: number = 0;
-
-  @Input('totalPages')
-  total: number = 0;
-
-  @Input('itemsPerPage')
-  perPage: number = 0;
-
-  @Output('onClickNext')
-  incrementPage: EventEmitter<null> = new EventEmitter<null>();
-
-  @Output('onClickPrevious')
-  decrementPage: EventEmitter<null> = new EventEmitter<null>();
-
-  @Output('onClickNextN')
-  incrementPageN: EventEmitter<null> = new EventEmitter<null>();
-
-  @Output('onClickPreviousN')
-  decrementPageN: EventEmitter<null> = new EventEmitter<null>();
-
-  @Output('onClickPageN')
-  gotoPageN: EventEmitter<number> = new EventEmitter<number>();
-
   @Output('onClickItem')
   clickItem: EventEmitter<number> = new EventEmitter<number>();
-
-  @Output('onClickNumberPerPage')
-  clickNumberPerPage: EventEmitter<number> = new EventEmitter<number>();
-
-  openPagination: boolean = false;
 
   constructor() {}
 
@@ -75,14 +46,5 @@ export class TableComponent {
     }
 
     return result;
-  }
-
-  open() {
-    this.openPagination = !this.openPagination;
-  }
-
-  onClickNumberPerPage(value: number) {
-    this.openPagination = false;
-    this.clickNumberPerPage.emit(value);
   }
 }

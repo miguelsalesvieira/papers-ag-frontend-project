@@ -1,96 +1,18 @@
-<div class="main">
-  <div class="header"></div>
-  <table class="table">
-    <thead>
-      <tr class="table-row">
+<table class="table">
+  <thead>
+    <tr class="table-row">
+      <ng-container *ngFor="let column of columns">
+        <th class="table-header">{{ column }}</th>
+      </ng-container>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container class="item" *ngFor="let item of items; let i = index">
+      <tr class="table-row" (click)="clickItem.emit(i)">
         <ng-container *ngFor="let column of columns">
-          <th class="table-header">{{ column }}</th>
+          <td class="table-item">{{ item[column] }}</td>
         </ng-container>
       </tr>
-    </thead>
-    <tbody>
-      <ng-container class="item" *ngFor="let item of items; let i = index">
-        <tr class="table-row" (click)="clickItem.emit(i)">
-          <ng-container *ngFor="let column of columns">
-            <td class="table-item">{{ item[column] }}</td>
-          </ng-container>
-        </tr>
-      </ng-container>
-    </tbody>
-  </table>
-  <div class="footer">
-    <div class="dropdown">
-      <label class="label" (click)="open()"
-        >{{ perPage }} / page
-        <span class="icon" [class.open]="openPagination">&#9660;</span></label
-      >
-      <div class="items" [class.open]="openPagination">
-        <label class="item" (click)="onClickNumberPerPage(10)"
-          >10 / page
-        </label>
-        <label class="item" (click)="onClickNumberPerPage(20)"
-          >20 / page
-        </label>
-        <label class="item" (click)="onClickNumberPerPage(50)"
-          >50 / page
-        </label>
-        <label class="item" (click)="onClickNumberPerPage(100)"
-          >100 / page
-        </label>
-      </div>
-    </div>
-
-    <ng-container *ngIf="total > 5">
-      <button *ngIf="page > 0" (click)="decrementPage.emit()"><</button>
-      <button [class.active]="page === 0" (click)="gotoPageN.emit(0)">
-        {{ 0 }}
-      </button>
-      <button *ngIf="page >= 3" (click)="decrementPageN.emit()"><<</button>
-      <ng-container *ngIf="page < 3">
-        <button
-          *ngFor="let pageNumber of range(1, 5)"
-          [class.active]="page === pageNumber"
-          (click)="gotoPageN.emit(pageNumber)"
-        >
-          {{ pageNumber }}
-        </button>
-      </ng-container>
-      <ng-container *ngIf="page > total - 3">
-        <button
-          *ngFor="let pageNumber of range(total - 4, total)"
-          [class.active]="page === pageNumber"
-          (click)="gotoPageN.emit(pageNumber)"
-        >
-          {{ pageNumber }}
-        </button>
-      </ng-container>
-      <ng-container *ngIf="page >= 3 && page <= total - 3">
-        <button
-          *ngFor="let pageNumber of range(page - 2, page + 3)"
-          [class.active]="page === pageNumber"
-          (click)="gotoPageN.emit(pageNumber)"
-        >
-          {{ pageNumber }}
-        </button>
-      </ng-container>
-      <button *ngIf="page <= total - 4" (click)="incrementPageN.emit()">
-        >>
-      </button>
-      <button [class.active]="page === total" (click)="gotoPageN.emit(total)">
-        {{ total }}
-      </button>
-      <button (click)="incrementPage.emit()">></button>
     </ng-container>
-    <ng-container *ngIf="total <= 5">
-      <button (click)="decrementPage.emit()"><</button>
-      <button
-        *ngFor="let pageNumber of range(0, total + 1)"
-        [class.active]="page === pageNumber"
-        (click)="gotoPageN.emit(pageNumber)"
-      >
-        {{ pageNumber }}
-      </button>
-      <button (click)="incrementPage.emit()">></button>
-    </ng-container>
-  </div>
-</div>
+  </tbody>
+</table>
