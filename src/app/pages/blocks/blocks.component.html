@@ -1,20 +1,27 @@
 <div class="main">
-  <h1>Blocks</h1>
-  <app-pagination
-    [currentPage]="currentPage"
-    [totalPages]="maxNumberPages"
-    [itemsPerPage]="numberOfBlocksPerPage"
-    (onClickNext)="onClickNext()"
-    (onClickPrevious)="onClickPrevious()"
-    (onClickNextN)="onClickNextN()"
-    (onClickPreviousN)="onClickPreviousN()"
-    (onClickPageN)="onClickPageN($event)"
-    (onClickNumberPerPage)="onClickNumberPerPage($event)"
-  ></app-pagination>
-  <app-table
-    [items]="blocks"
-    [columns]="['level', 'proposer', 'timestamp', 'transactionsCount']"
-    (onClickItem)="onClickItem($event)"
-  ></app-table>
-  
+  <ng-container *ngIf="loading; else tableBlock">
+    <div class="loader">
+      <app-loader></app-loader>
+      <h1>Fetching Blocks</h1>
+    </div>
+  </ng-container>
+  <ng-template #tableBlock>
+    <h1>Blocks</h1>
+    <app-pagination
+      [currentPage]="currentPage"
+      [totalPages]="maxNumberPages"
+      [itemsPerPage]="numberOfBlocksPerPage"
+      (onClickNext)="onClickNext()"
+      (onClickPrevious)="onClickPrevious()"
+      (onClickNextN)="onClickNextN()"
+      (onClickPreviousN)="onClickPreviousN()"
+      (onClickPageN)="onClickPageN($event)"
+      (onClickNumberPerPage)="onClickNumberPerPage($event)"
+    ></app-pagination>
+    <app-table
+      [items]="blocks"
+      [columns]="['level', 'proposer', 'timestamp', 'transactionsCount']"
+      (onClickItem)="onClickItem($event)"
+    ></app-table>
+  </ng-template>
 </div>

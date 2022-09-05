@@ -24,6 +24,7 @@ export class BlocksPageComponent implements OnInit, OnDestroy {
   public currentPage: number = 0;
   public pageStep: number = 5;
   public blocks: Block[] = [];
+  public loading: boolean = true;
 
   constructor(private router: Router, private blocksService: BlocksService) {}
 
@@ -39,6 +40,7 @@ export class BlocksPageComponent implements OnInit, OnDestroy {
 
   // ASYNC REQUESTS
   getNumberOfBlocks() {
+    this.loading = true;
     const _this = this;
     this.blocksService.getNumberOfBlocks().subscribe({
       next(numberOfBlocks: number) {
@@ -54,6 +56,7 @@ export class BlocksPageComponent implements OnInit, OnDestroy {
   }
 
   getBlocks() {
+    this.loading = true;
     const _this = this;
     this.blocksService
       .getBlocks(this.numberOfBlocksPerPage, this.currentPage)
@@ -73,6 +76,9 @@ export class BlocksPageComponent implements OnInit, OnDestroy {
           });
         },
         complete() {
+          // We set loading to false here because we want to show the user the table content already,
+          // without the transactions count and progressively show the rest of the data
+          _this.loading = false;
           _this.getTransactionCounts();
         },
         error(error) {
@@ -92,8 +98,7 @@ export class BlocksPageComponent implements OnInit, OnDestroy {
       next(block: BlockWithTransactionCount) {
         _this.blocks[block.index] = block.block;
       },
-      complete() {
-      },
+      complete() {},
       error(error) {
         console.error(error);
       },

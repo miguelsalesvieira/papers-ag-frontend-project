@@ -1,22 +1,37 @@
 <div class="main">
   <p (click)="onClickBack()"><span>&#8592;</span>Go back to blocks</p>
-  <h1>
-    Transactions for block <span>{{ currentBlockLevel }}</span>
-  </h1>
-  <app-pagination
-    [currentPage]="currentPage"
-    [totalPages]="maxNumberPages"
-    [itemsPerPage]="numberOfTransactionsPerPage"
-    (onClickNext)="onClickNext()"
-    (onClickPrevious)="onClickPrevious()"
-    (onClickNextN)="onClickNextN()"
-    (onClickPreviousN)="onClickPreviousN()"
-    (onClickPageN)="onClickPageN($event)"
-    (onClickNumberPerPage)="onClickNumberPerPage($event)"
-  ></app-pagination>
-  <app-table
-    [items]="transactions"
-    [columns]="['sender', 'target', 'amount', 'status']"
-    (onClickItem)="onClickItem($event)"
-  ></app-table>
+  <ng-container *ngIf="loading; else tableBlock">
+    <div class="loader">
+      <app-loader></app-loader>
+      <h1>Fetching Blocks</h1>
+    </div>
+  </ng-container>
+  <ng-template #tableBlock>
+    <ng-container *ngIf="transactions.length <= 0">
+      <h1>
+        No transactions for block <span>{{ currentBlockLevel }}</span>
+      </h1>
+    </ng-container>
+    <ng-container *ngIf="transactions.length > 0">
+      <h1>
+        Transactions for block <span>{{ currentBlockLevel }}</span>
+      </h1>
+      <app-pagination
+        [currentPage]="currentPage"
+        [totalPages]="maxNumberPages"
+        [itemsPerPage]="numberOfTransactionsPerPage"
+        (onClickNext)="onClickNext()"
+        (onClickPrevious)="onClickPrevious()"
+        (onClickNextN)="onClickNextN()"
+        (onClickPreviousN)="onClickPreviousN()"
+        (onClickPageN)="onClickPageN($event)"
+        (onClickNumberPerPage)="onClickNumberPerPage($event)"
+      ></app-pagination>
+      <app-table
+        [items]="transactions"
+        [columns]="['sender', 'target', 'amount', 'status']"
+        (onClickItem)="onClickItem($event)"
+      ></app-table>
+    </ng-container>
+  </ng-template>
 </div>

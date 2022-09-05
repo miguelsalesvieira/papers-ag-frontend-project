@@ -13,10 +13,12 @@ import { BlockPageComponent } from './pages/block/block.component';
 import { NotFoundPageComponent } from './pages/not-found/not-found.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoaderComponent,
     TableComponent,
     PaginationComponent,
     BlocksPageComponent,

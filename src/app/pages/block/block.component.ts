@@ -24,6 +24,7 @@ export class BlockPageComponent implements OnInit {
   public pageStep: number = 5;
   public currentBlockLevel: number = 0;
   public transactions: Transaction[] = [];
+  public loading: boolean = true;
 
   constructor(
     private router: Router,
@@ -47,6 +48,7 @@ export class BlockPageComponent implements OnInit {
 
   // ASYNC REQUESTS
   getNumberOfTransactions() {
+    this.loading = true;
     const _this = this;
     this.transactionsService
       .getNumberOfTransactions(this.currentBlockLevel)
@@ -64,6 +66,7 @@ export class BlockPageComponent implements OnInit {
   }
 
   getTransactions() {
+    this.loading = true;
     const _this = this;
     this.transactionsService
       .getTransactions(
@@ -86,7 +89,9 @@ export class BlockPageComponent implements OnInit {
             }
           );
         },
-        complete() {},
+        complete() {
+          _this.loading = false;
+        },
         error(error) {
           console.error(error);
         },
@@ -97,7 +102,7 @@ export class BlockPageComponent implements OnInit {
   onClickBack() {
     this.router.navigate([`/blocks`]);
   }
-  
+
   onClickItem(index: number) {}
 
   // PAGINATION HANDLERS

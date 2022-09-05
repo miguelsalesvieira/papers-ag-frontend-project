@@ -15,5 +15,16 @@
       color: var(--global-color-grey-dark);
       margin: 0px 0px var(--global-margin) 0px;
     }
+
+    .loader {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      h1 {
+        margin-top: calc(var(--global-margin) * 2);
+      }
+    }
   }
 }
