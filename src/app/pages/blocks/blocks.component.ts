@@ -93,7 +93,6 @@ export class BlocksPageComponent implements OnInit, OnDestroy {
         _this.blocks[block.index] = block.block;
       },
       complete() {
-        console.log('Finished getting all data');
       },
       error(error) {
         console.error(error);

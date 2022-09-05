@@ -13,7 +13,6 @@
       </label>
     </div>
   </div>
-
   <ng-container *ngIf="total > 5">
     <button *ngIf="page > 0" (click)="decrementPage.emit()"><</button>
     <button [class.active]="page === 0" (click)="gotoPageN.emit(0)">

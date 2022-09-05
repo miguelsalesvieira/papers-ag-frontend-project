@@ -86,9 +86,7 @@ export class BlockPageComponent implements OnInit {
             }
           );
         },
-        complete() {
-          console.log('fetch all transactions', _this.transactions);
-        },
+        complete() {},
         error(error) {
           console.error(error);
         },
@@ -99,9 +97,8 @@ export class BlockPageComponent implements OnInit {
   onClickBack() {
     this.router.navigate([`/blocks`]);
   }
-  onClickItem(index: number) {
-    console.log('clicked item');
-  }
+  
+  onClickItem(index: number) {}
 
   // PAGINATION HANDLERS
   onClickNext() {
