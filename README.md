@@ -20,6 +20,7 @@ The source project structure is as follows:
     │   └── ...                       # Application component files
     ├── assets                        # Directory for assets like images, svgs, videos, etc
     ├── environments                  # Environment variables for application
+    ├── styles.scss                   # Global css variables for the entire application
     └── ...                           # Boilerplate angular files
 
 ## Start the project for development
